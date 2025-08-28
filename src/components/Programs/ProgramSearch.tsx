@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Filter, SortAsc } from 'lucide-react';
+// import { Search, Filter, SortAsc } from 'lucide-react';
 import { Program } from '../../types';
 import ProgramCard from './ProgramCard';
 
@@ -64,7 +64,10 @@ const ProgramSearch: React.FC<ProgramSearchProps> = ({
       {/* Search and Controls */}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+          <svg className="absolute left-3 top-3 h-4 w-4 text-gray-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
           <input
             type="text"
             placeholder="Search programs or universities..."
@@ -83,12 +86,16 @@ const ProgramSearch: React.FC<ProgramSearchProps> = ({
                 : 'border-gray-300 hover:border-gray-400'
             }`}
           >
-            <Filter className="h-4 w-4" />
+            <svg className="h-4 w-4" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"/>
+            </svg>
             <span>Filters</span>
           </button>
           
           <div className="relative">
-            <SortAsc className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+            <svg className="absolute left-3 top-3 h-4 w-4 text-gray-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'name' | 'cutoff' | 'tuition')}

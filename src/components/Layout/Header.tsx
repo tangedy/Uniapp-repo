@@ -1,10 +1,10 @@
 import React from 'react';
-import { LogOut, User } from 'lucide-react';
+// import { LogOut, User } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface HeaderProps {
-  currentView: string;
-  onViewChange: (view: string) => void;
+  currentView: 'dashboard' | 'programs' | 'tracker';
+  onViewChange: (view: 'dashboard' | 'programs' | 'tracker') => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ currentView, onViewChange }) => {
@@ -53,14 +53,21 @@ const Header: React.FC<HeaderProps> = ({ currentView, onViewChange }) => {
 
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <User className="h-4 w-4" />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
               <span>{user?.firstName} {user?.lastName}</span>
             </div>
             <button
               onClick={logout}
               className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
             >
-              <LogOut className="h-4 w-4" />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16,17 21,12 16,7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
               <span>Logout</span>
             </button>
           </div>
